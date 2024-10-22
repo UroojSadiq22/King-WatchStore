@@ -1,101 +1,174 @@
+"use client"
 import Image from "next/image";
+import Link from "next/link";
+import { FaFacebookF, FaYoutube, FaTwitter } from "react-icons/fa";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
+import About from "./pages/about";
+import Brands from "./pages/brands/page";
+import Contact from "./pages/contact";
+import { Card, CardContent } from "@/components/ui/card";
+import CardCrousal from "./card"
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const plugin = useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  )
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+  const watches = [
+    {
+      id:1,
+      name: "Brown Watch",
+      image: "/watches.png",
+      description: "An elegant style to wear",
+      price: "$25.66",
+    },
+    {
+      id:2,
+      name: "Blue Watch",
+      image: "/watches(1).png",
+      description: "Class and elegance combined",
+      price: "$150.00",
+    },
+    {
+      id:3,
+      name: "Green Watch",
+      image: "/watches(2).png",
+      description: "Technology meets style",
+      price: "$200.00",
+    },
+    {
+      id:4,
+      name: "Green Watch",
+      image: "/watches(3).png",
+      description: "Technology meets style",
+      price: "$200.00",
+    },
+  ];
+
+  return (
+    <>
+
+    <main className="min-h-screen flex flex-col-reverse sm:flex-row justify-around items-center sm:mt-20 mt-10 sm:py-20 py-16 px-4 sm:px-10 w-full">
+  <div className="flex flex-col p-4 gap-10 w-full sm:w-auto">
+    <h1 className="text-white animate-horizontal-scroll sm:text-6xl text-4xl font-bold mt-10 sm:mt-0">
+      Exquisite Watches
+      <br />
+      <span className="sm:text-3xl text-2xl">
+        Choose Luxury,<span className="text-black"> Choose us</span>
+      </span>
+    </h1>
+    <div>
+      <p className="mb-10 animate-vertical-scroll text-sm text-gray-700">
+        Discover the Perfect Watch for Every Occasion
+        <br /> and Elevate Your Style with Timeless Elegance <br />
+        and Precision Craftsmanship
+      </p>
+
+      <div className="flex gap-6 p-4 border border-transparent">
+        <Link
+          href="/facebook"
+          className="p-1 hover:bg-[#f5854e] hover:text-white rounded-full border border-white animate-move-around"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <FaFacebookF className="text-xl cursor-pointer" />
+        </Link>
+        <Link
+          href="/twitter"
+          className="p-1 hover:bg-[#f5854e] hover:text-white transition-all duration-100 ease-in-out rounded-full border border-white"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <FaTwitter className="text-xl cursor-pointer" />
+        </Link>
+        <Link
+          href="/youtube"
+          className="p-1 hover:bg-[#f5854e] hover:text-white transition-all duration-100 ease-in-out rounded-full border border-white"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <FaYoutube className="text-xl cursor-pointer" />
+        </Link>
+      </div>
     </div>
+  </div>
+  
+
+  <Carousel
+  plugins={[plugin.current]}
+  className="w-full max-w-sm sm:max-w-xs flex flex-col justify-center items-center"
+  onMouseEnter={plugin.current.stop}
+  onMouseLeave={plugin.current.reset}
+>
+  <CarouselContent className="w-full">
+    {watches.map((watch, index) => (
+      <CarouselItem key={index} className="flex justify-center">
+        <div className="p-1">
+          <Image
+            src={watch.image}
+            alt={`watch-${index}`}
+            width={300}
+            height={300}
+            style={{width: "auto" , height:"auto"}}
+            className="object-contain"
+          />
+        </div>
+
+      </CarouselItem>
+    ))}
+    
+
+  </CarouselContent>
+  <Image
+            src="/Ellipse 4.png"
+            alt="shadow"
+            width={200}
+            height={200}
+            style={{width: "auto" , height:"auto"}}
+            className="object-contain"
+          />
+  <CarouselPrevious className="hover:bg-[#f5854e] hover:text-white" />
+  <CarouselNext className="hover:bg-[#f5854e] hover:text-white" />
+  
+</Carousel>
+
+{/* <Carousel
+      plugins={[plugin.current]}
+      className="w-full max-w-xs"
+      onMouseEnter={plugin.current.stop}
+      onMouseLeave={plugin.current.reset}
+    >
+      <CarouselContent>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <CarouselItem key={index}>
+            <div className="p-1">
+              <Card>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <span className="text-4xl font-semibold">{index + 1}</span>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel> */}
+
+    
+</main>
+
+
+
+
+    <About/>
+    <Brands/>
+    <Contact/>
+    
+    </>
+   
+    
   );
 }
