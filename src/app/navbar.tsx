@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef } from "react";
+import { forwardRef, Ref } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiShoppingCart, FiUser, FiMenu } from "react-icons/fi";
@@ -13,11 +13,13 @@ import {
 
 import Search from "./pages/search/page";
 
-const MenuIcon = forwardRef((props, ref) => (
-  <div ref={ref} {...props}>
-    <FiMenu className="text-xl cursor-pointer" />
-  </div>
-));
+const MenuIcon = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  (props, ref: Ref<HTMLDivElement>) => (
+    <div ref={ref} {...props}>
+      <FiMenu className="text-xl cursor-pointer" />
+    </div>
+  )
+);
 MenuIcon.displayName = "MenuIcon";
 
 export default function Navbar() {
