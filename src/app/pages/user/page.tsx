@@ -101,7 +101,6 @@
 
 import { useState } from "react";
 import { FiUser } from "react-icons/fi";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast , Toaster } from "sonner"
 import {
@@ -148,7 +147,7 @@ export default function User({ setUsername }: UserProps) {
         <DialogHeader>
           <DialogTitle className="text-2xl text-center mb-4">Login</DialogTitle>
           <DialogDescription>
-            Login to your profile here. Click login when you're done.
+            Login to your profile here. Click login when you are done.
           </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col gap-4">
@@ -156,7 +155,7 @@ export default function User({ setUsername }: UserProps) {
             <Label htmlFor="username" className="text-right">
               Username
             </Label>
-            <Input
+            <input
               id="username"
               value={usernameInput}
               onChange={(e) => setUsernameInput(e.target.value)}
@@ -168,14 +167,14 @@ export default function User({ setUsername }: UserProps) {
             <Label htmlFor="email" className="text-right">
               Email
             </Label>
-            <Input id="email" className="col-span-3 outline-none focus:ring-orange-400" />
+            <input id="email" className="col-span-3 outline-none focus:ring-orange-400" />
           </div>
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="password" className="text-right">
               Password
             </Label>
-            <Input id="password" className="col-span-3 outline-none focus:ring-orange-400" />
+            <input id="password" className="col-span-3 outline-none focus:ring-orange-400" />
           </div>
         </div>
         <DialogFooter>

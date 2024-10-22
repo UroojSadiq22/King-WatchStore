@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/dialog";
 import { FiSearch } from "react-icons/fi";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 const watches = [
@@ -83,7 +82,7 @@ export default function Search() {
             </DialogTitle>
             <DialogDescription>
               <form onSubmit={handleSearch} className="flex flex-col gap-4">
-                <Input
+                <input
                   type="text"
                   placeholder="Search for a watch..."
                   value={query}
